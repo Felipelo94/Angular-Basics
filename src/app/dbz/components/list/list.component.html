@@ -1,19 +1,29 @@
 <h4>Personajes</h4>
 <ul class="list-group">
-
-  <li *ngFor="
-  let character of characterList;
-  let i= index;
-  let isFirst = first;
-  let isLast = last;
-  let isEven = even;
-  "
-  class="list-group-item"
-  [ngClass]="{
-  'list-group-item-primary':isLast,
-  'list-group-item-dark':isFirst}"
+  <li
+    *ngFor="
+      let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even
+    "
+    class="list-group-item d-flex justify-content-between align-items-center"
+    [ngClass]="{
+      'list-group-item-primary': isLast,
+      'list-group-item-dark': isFirst
+    }"
   >
-    <span>{{i + 1}}.</span>
-    {{character.name}} - Power: {{character.power}}</li>
+  <div class="">
 
+    <span>{{ i + 1 }}.</span>
+    {{ character.name }} - Power: {{ character.power }}
+  </div>
+   
+   
+   
+    <button  (click)="onDeleteCharacter(character.id || '')" class="btn btn-danger">X</button>
+  </li>
+
+  
 </ul>
